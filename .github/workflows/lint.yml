@@ -9,14 +9,27 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    # Installer Java
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
         distribution: temurin
-        java-version: '17'
+        java-version: '22.0.1'
 
+    # Installer Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    # Installer les dépendances Python
+    - name: Install Python dependencies
+      run: pip install pyspellchecker
+
+    # Exécuter Checkstyle
     - name: Run Checkstyle
       run: java -jar checkstyle-12.1.2-all.jar -c checkstyle.xml src
 
+    # Vérifier les noms en anglais
     - name: Check English names
       run: python scripts/check_english.py

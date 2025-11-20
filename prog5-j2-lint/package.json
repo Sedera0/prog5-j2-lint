@@ -1,0 +1,23 @@
+{
+  "name": "prog5-j2-lint",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sedera0/prog5-j2-lint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sedera0/prog5-j2-lint/issues"
+  },
+  "homepage": "https://github.com/Sedera0/prog5-j2-lint#readme",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1"
+  }
+}

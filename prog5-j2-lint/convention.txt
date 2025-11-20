@@ -1,0 +1,14 @@
+Class Wallet
+    couleur
+    taille
+    addVola
+    getVola
+    open
+    close
+    isLost
+    checkVola
+
+Case convention
+    class - PascalCase
+    Variables - camelCase + en englais
+    methode - camelCase

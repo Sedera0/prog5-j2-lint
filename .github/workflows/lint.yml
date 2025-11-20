@@ -15,9 +15,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install dependencies
-        run: mvn install -DskipTests
-
       - name: Run Checkstyle
         run: java -jar checkstyle-12.1.2-all.jar -c checkstyle.xml src
 

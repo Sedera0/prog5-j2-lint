@@ -3,18 +3,20 @@ name: Java Lint
 on: [push, pull_request]
 
 jobs:
-  checkstyle:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '17'
 
-      - name: Run Checkstyle
-        run: java -jar checkstyle-12.1.2-all.jar -c checkstyle.xml src
+    - name: Run Checkstyle
+      run: java -jar checkstyle-12.1.2-all.jar -c checkstyle.xml src
 
+    - name: Check English names
+      run: python scripts/check_english.py

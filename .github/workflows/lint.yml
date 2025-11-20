@@ -1,16 +1,22 @@
-name: Run ESLint
+name: Java Lint
 
 on: [push, pull_request]
 
 jobs:
-  eslint:
+  checkstyle:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v4 # Action to check out your repository's code
-    - name: Install dependencies
-      run: npm ci # Install your project dependencies (including eslint)
-    - name: Run ESLint
-      # Use a specific ESLint action from the Marketplace
-      uses: stefanoeb/eslint-action@v1.0.2 
-      with:
-        files: src/ # Optional: specify which files/directories to lint
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install dependencies
+        run: mvn install -DskipTests
+
+      - name: Run Checkstyle
+        run: mvn checkstyle:check

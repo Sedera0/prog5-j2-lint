@@ -19,4 +19,5 @@ jobs:
         run: mvn install -DskipTests
 
       - name: Run Checkstyle
-        run: mvn checkstyle:check
+        run: java -jar checkstyle-12.1.2-all.jar -c checkstyle.xml src
+
